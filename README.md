@@ -1,47 +1,68 @@
 # Hosting a Full-Stack Application
 
-### **You can use you own project completed in previous courses or use the provided Udagram app for completing this final project.**
-
----
-
-In this project you will learn how to take a newly developed Full-Stack application built for a retailer and deploy it to a cloud service provider so that it is available to customers. You will use the aws console to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers. You will modify your package.json scripts and replace hard coded secrets with environment variables in your code.
-
-After the initial setup, you will learn to interact with the services you started on aws and will deploy manually the application a first time to it. As you get more familiar with the services and interact with them through a CLI, you will gradually understand all the moving parts.
-
-You will then register for a free account on CircleCi and connect your Github account to it. Based on the manual steps used to deploy the app, you will write a config.yml file that will make the process reproducible in CircleCi. You will set up the process to be executed automatically based when code is pushed on the main Github branch.
-
-The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the Full-Stack application.
-
-# Udagram
-
-This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
 
 
+In this project we have learned how to take a newly developed Full-Stack application built for a retailer and deploy it to a cloud service provider so that it is available to customers. we have used the aws console to start and configure the services the application needs such as a database (RDS) to store product information and a web server allowing the site to be discovered by potential customers. 
 
-### Dependencies
 
-```
-- Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
+### Dependencies:
 
-- npm 6.14.8 (LTS) or more recent, Yarn can work but was not tested for this project
+In this Project i used and setup my Environment using :
 
-- AWS CLI v2, v1 can work but was not tested for this project
+- Node v14.15.1 (LTS) by using NVM node version model to downgrade from node 16 to 14.
+
+- Yarn & NPM 
+
+- AWS CLI v2
 
 - A RDS database running Postgres.
 
 - A S3 bucket for hosting uploaded pictures.
 
-```
+- A EB to setup my environment.
+
+
 
 ### Installation
+First of all i start to run and deploye the code on my local machine before taking any steps further by using Yarn & NPM.
 
-Provision the necessary AWS services needed for running the application:
+## Infrastructure : 
+in this Project we have used 3 services from AWS 
+- RDS: Amazon RDS is a relational database service that manages common database administration tasks, resizes automatically, and is cost-friendly.
+i have used Relational DATABASE Service with Postgres Engine, We created called udagaram. 
 
-1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
-1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
-1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
-1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
+- S3 : Amazon S3 is an object storage service that stores data as objects within buckets. An object is a file and any metadata that describes the file. A bucket is a container for objects. 
+And we have used it to make static website for our clint side. 
+
+ - EB : Elastic Beanstalk (EB) is a fairly straightforward way of setting up scalable applications. It uses Amazon Elastic Compute Cloud (EC2) instances, Amazon Simple Storage Service (S3) buckets, and load balancers to manage your application architecture for US . 
+
+ ## App dependencies: 
+- Node.js:  in this project we used many dependencies for this project, 
+ we used nvm to downgrade node.js v16 to node.js v 14 since this project have been build with this version.
+
+ - Express : Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+- yarn : Yarn is a package manager that doubles down as project manager.
+
+ - Angular : Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript.
+
+- Typescript: we hade to install version 3.4.5 since there was error occure from angular compiler requires this version. 
+
+## Pipeline process: 
+By connecting the CircleCl to our github to get noticed when any changes have been added by different developers, and adding Environment variables to circleCl. The 7 essential stages of a CI/CD pipeline So now we’ve seen what a pipeline is for..
+
+- The trigger
+
+- Code checkout
+
+- Compile the code
+
+- Run unit tests
+
+- Package the code
+
+- Run acceptance tests
+
+- Delivery or Deployment
 
 ## Testing
 
@@ -53,20 +74,21 @@ This project contains two different test suite: unit tests and End-To-End tests(
 
 There are no Unit test on the back-end
 
-### Unit Tests:
-
-Unit tests are using the Jasmine Framework.
+## Unit Tests:
+  Unit tests are using the Jasmine Framework.
 
 ### End to End Tests:
-
 The e2e tests are using Protractor and Jasmine.
+
+## Front-End Link from AWS S3:
+- http://mohsen-udagram.s3-website-us-east-1.amazonaws.com
+
 
 ## Built With
 
-- [Angular](https://angular.io/) - Single Page Application Framework
-- [Node](https://nodejs.org) - Javascript Runtime
-- [Express](https://expressjs.com/) - Javascript API Framework
+- [Angular] - Single Page Application Framework
+- [Node] - Javascript Runtime
+- [Express] - Javascript API Framework
 
-## License
 
-[License](LICENSE.txt)
+
