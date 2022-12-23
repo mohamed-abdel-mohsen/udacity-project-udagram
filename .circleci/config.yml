@@ -86,9 +86,3 @@ workflows:
           requires:
             - hold
 
-    steps:
-      - checkout
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $AWS_ACCESS_KEY_ID	 # this env var must be set within the project
