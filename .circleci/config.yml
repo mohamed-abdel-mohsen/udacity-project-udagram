@@ -91,4 +91,4 @@ workflows:
       - run:
           name: "echo an env var that is part of our project"
           command: |
-            echo $MY_ENV_VAR # this env var must be set within the project
+            echo $AWS_ACCESS_KEY_ID	 # this env var must be set within the project
