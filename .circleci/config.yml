@@ -48,6 +48,7 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             yarn api:build
+
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -64,11 +65,15 @@ jobs:
           command: |
             echo "TODO: deploy the frontend app"
             yarn frontend:deploy
+            printenv > www/.env
+              npm run archive
+      - aws-cli/install
       - run:
           name: Deploy Back-End
           command: |
             echo "TODO: deploy the frontend app"
             yarn api:deploy
+             aws elasticbeanstalk update-environment --application-name $EB_APP --environment-name $EB_ENV --version-label <<pipeline.git.revision>>
 
 workflows:
   udagram:
